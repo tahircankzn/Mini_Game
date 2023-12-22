@@ -7,8 +7,9 @@
 
 int main()
 {
-	ses();
+
   char ihtiyac[9][15] = {"tokluk","uyku","sevgi","sosyallesme","saglik","egitim","hijyen","tuvalet","eglence"};
+  int duzey[9] = {10,10,10,10,10,10,10,10,10};
   
   char yemekler[5][30] = {"konserve bezelye","geyik eti","kahve","yaban mersini","mantar"};
   int yemekler_point[5] = {1,3,1,1,2};
@@ -25,14 +26,17 @@ int main()
   char egitim_type[3][30] = {"gitar ogret","avlanmayi ogret","tuzak kurmayi ogret"};
   int egitim_type_point[3] = {3,2,1};
   
-  char hijyen_type[3][30] = {"banyoya gönder","tırnak kestir","sac tarama"};
+  char hijyen_type[3][30] = {"banyoya gonder","tirnak kestir","sac tarama"};
   int hijyen_type_point[3] = {3,2,1};
   
   char sosyallesme_type[2][30] = {"avlanmya cikin","zombilerle oynayin"};
   int sosyallesme_type_point[2] = {4,2};
   
+  char eglence_type[2][30] = {"dans etme"};
+  int eglence_type_point[1] = {3};
   
-  int duzey[9] = {10,10,10,10,10,10,10,10,10};
+  
+  
   
   char eylem;
   int choice;
@@ -66,6 +70,7 @@ int main()
   						printf("\n%d - %s",i+1,yemekler[i]);
 					  };
 					  
+					duzey[1] = duzey[1]-4;
 					
   					printf("\nseciminiz : ");
   					scanf("%d",&choice);
@@ -87,6 +92,9 @@ int main()
   					printf("zzz..\n");
   					sleep(1);
   					printf("Elly uyandi ve acikmis\n");
+  					duzey[0] = duzey[0]-5;
+  					duzey[6] = duzey[6]-4;
+  					duzey[7] = duzey[7]-2;
 			
 		  		break;
 				  };
@@ -99,7 +107,7 @@ int main()
   						printf("\n%d - %s",i+1,sevgi_type[i]);
 					  };
 					  
-					
+					duzey[4] = duzey[4]+3;
   					printf("\nseciminiz : ");
   					scanf("%d",&choice);
   					
@@ -116,7 +124,8 @@ int main()
   					for(i=0;i<2;i++){
   						printf("\n%d - %s",i+1,sosyallesme_type[i]);
 					  };
-					  
+					duzey[0] = duzey[0]-3;
+					duzey[4] = duzey[4]+3;
 					
   					printf("\nseciminiz : ");
   					scanf("%d",&choice);
@@ -136,7 +145,7 @@ int main()
   						printf("\n%d - %s",i+1,saglik_type[i]);
 					  };
 					  
-					
+					duzey[4] = duzey[4]+3;
   					printf("\nseciminiz : ");
   					scanf("%d",&choice);
   					
@@ -154,7 +163,8 @@ int main()
   					for(i=0;i<2;i++){
   						printf("\n%d - %s",i+1,egitim_type[i]);
 					  };
-					  
+					duzey[5] = duzey[5]+3;
+					duzey[0] = duzey[0]-3;
 					
   					printf("\nseciminiz : ");
   					scanf("%d",&choice);
@@ -199,7 +209,7 @@ int main()
 				  
 			case '9': // eglence
   				{
-  					printf("--------");
+  					//eglence_type_point[0];
 			
 		  		break;
 				  };
