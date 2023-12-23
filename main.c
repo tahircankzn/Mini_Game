@@ -41,13 +41,15 @@ int main()
   char eylem;
   int choice;
   
-  printf(" Joel and Elly From The Last Of Us \n-------------");
+  printf(" Joel and Elly From The Last Of Us \n---------------------------------\n");
   
   void ihtiyaclar(){
   	int i = 0;
+  	printf("\n------------------\n");
   	for(i;i<9;i++){
   		printf("\n%d - %s : %d",i+1,ihtiyac[i],duzey[i]);
 	  };
+	printf("\n------------------\n");
   };
   
   
@@ -55,12 +57,22 @@ int main()
   
   
   ihtiyaclar();
-  
+  int end = 0;
   while (1){
-	printf("\n-------------\nEylem secin : ");
+	printf("\nJoel icin eylem secin : ");
 	scanf("%c",&eylem);
-	
-  
+	int i = 0;
+	for(i;i<9;i++){
+  		if (duzey[i] <= 0){
+  			end = 1;
+  			break;
+		  };
+	  };
+	printf("\n------------------\n");
+  	if(end == 1){
+  		break;
+	  };
+  	
 	switch(eylem)
 		{
   			case '1': // tokluk
@@ -74,7 +86,11 @@ int main()
 					
   					printf("\nseciminiz : ");
   					scanf("%d",&choice);
+  					sleep(1);
+  					printf("Elly > off ya %s cok lezzetli",yemekler[choice-1]);
+  					sleep(1);
   					
+  					duzey[7] = duzey[7] -3;
   					duzey[0] = duzey[0] + yemekler_point[choice-1];
   					
   					ihtiyaclar();
@@ -95,7 +111,8 @@ int main()
   					duzey[0] = duzey[0]-5;
   					duzey[6] = duzey[6]-4;
   					duzey[7] = duzey[7]-2;
-			
+					ihtiyaclar();
+					
 		  		break;
 				  };
 				  
@@ -131,7 +148,7 @@ int main()
   					scanf("%d",&choice);
   					
   					duzey[3] = duzey[3] + sosyallesme_type_point[choice-1];
-  					
+  					duzey[4] = duzey[4]-4;
   					ihtiyaclar();
 			
 		  		break;
@@ -188,6 +205,7 @@ int main()
   					scanf("%d",&choice);
   					
   					duzey[6] = duzey[6] + hijyen_type_point[choice-1];
+  					duzey[1] = duzey[1] - 2;
   					
   					ihtiyaclar();
 			
@@ -202,20 +220,25 @@ int main()
   					printf("...\n");
   					sleep(1);
   					printf("Elly geri geldi\n");
-			
+  					duzey[0] = duzey[0] - 2;
+					ihtiyaclar();
 		  		break;
 				  };
 				  
 				  
 			case '9': // eglence
   				{
-  					//eglence_type_point[0];
-			
+  					printf("joel ve elly dans ediyor\n");
+  					sleep(1);
+  					duzey[8] = duzey[8] + eglence_type_point[0];
+					duzey[1] = duzey[1]-3;
+					duzey[4] = duzey[4]-4;
+					ihtiyaclar();
 		  		break;
 				  };
   		    	
 		};
   };
-  
+  printf("\nElly oldu");
   
 }
